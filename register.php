@@ -30,6 +30,9 @@
             case 'email':
               $aldaa = 'Email already taken!';
               break;
+            case 'unknown':
+              $aldaa = 'Unknown error! Contact us for more information.';
+              break;
             default:
               $aldaa = 'Aldaa!';
           }

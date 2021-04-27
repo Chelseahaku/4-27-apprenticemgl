@@ -45,8 +45,18 @@ if(isset($_POST['email'])) {
     header("Location: /register.php?error=username");
   }
 
-  //insert!!!!
+  $_POST[''];
 
+  $insertSql = "INSET INTO `users` (`name`, `username`, `email`, `password`) VALUE ('')";
+
+  $result = $conn->query($insertSql);
+
+  if($result === TRUE) {
+    //login user
+    header('Location: /profile.php');
+  } else {
+    header("Location: /register.php?error=unknown");
+  }
   $conn->close();
 
 } else {
