@@ -24,30 +24,15 @@
             case 'database':
               $aldaa = 'Database aldaa!';
               break;
+            case 'username':
+              $aldaa = 'Username already taken!';
+              break;
+            case 'email':
+              $aldaa = 'Email already taken!';
+              break;
             default:
               $aldaa = 'Aldaa!';
           }
-
-
-          /*
-          if($_GET['error'] == 'confirmation') {
-        ?>
-
-          <div class="alert alert-danger" role="alert">
-            Password aldaa!
-          </div>
-
-        <?php
-          } else if($_GET['error'] == 'database') {
-            ?>
-
-            <div class="alert alert-danger" role="alert">
-              Database aldaa!
-            </div>
-  
-          <?php
-          }
-          */
         }
         ?>
         <form action="registration.php" method="POST">
