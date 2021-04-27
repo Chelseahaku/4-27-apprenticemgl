@@ -11,21 +11,66 @@
     <title>Home!</title>
   </head>
   <body>
-	<?php include 'registration.php'; ?>
+	<?php //include 'registration.php'; ?>
   <?php include 'navbar.php'; ?>
     <div class="container">
-        <form action="register.php" method="POST">
+        <?php
+        if(isset($_GET['error'])) {
+
+          switch($_GET['error']) {
+            case 'confirmation':
+              $aldaa = 'Password aldaa!';
+              break;
+            case 'database':
+              $aldaa = 'Database aldaa!';
+              break;
+            default:
+              $aldaa = 'Aldaa!';
+          }
+
+
+          /*
+          if($_GET['error'] == 'confirmation') {
+        ?>
+
+          <div class="alert alert-danger" role="alert">
+            Password aldaa!
+          </div>
+
+        <?php
+          } else if($_GET['error'] == 'database') {
+            ?>
+
+            <div class="alert alert-danger" role="alert">
+              Database aldaa!
+            </div>
+  
+          <?php
+          }
+          */
+        }
+        ?>
+        <form action="registration.php" method="POST">
+          <?php
+          if(isset($aldaa)) {
+          ?>
+            <div class="alert alert-danger" role="alert">
+              <?php echo $aldaa; ?>
+            </div>
+          <?php
+          }
+          ?>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
-                <input type="text" required name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<input value="" type="text" required name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Username</label>
-                <input type="text" required name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input value="" type="text" required name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input value="" type="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -36,8 +81,8 @@
                 <input type="password" name="password_confirmation" required class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <input required type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Terms and Agreements</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
