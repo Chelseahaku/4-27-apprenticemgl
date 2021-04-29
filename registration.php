@@ -47,7 +47,7 @@ if(isset($_POST['email'])) {
 
   $_POST[''];
 
-  $insertSql = "INSET INTO `users` (`name`, `username`, `email`, `password`) VALUE ('')";
+  $insertSql = "INSERT INTO `users` (`name`, `username`, `email`, `password`) VALUE ('')";
 
   $result = $conn->query($insertSql);
 
